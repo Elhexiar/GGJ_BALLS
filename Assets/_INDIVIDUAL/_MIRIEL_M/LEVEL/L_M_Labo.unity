@@ -807,7 +807,7 @@ Transform:
   m_GameObject: {fileID: 957238300}
   serializedVersion: 2
   m_LocalRotation: {x: 0.44799155, y: -0, z: -0, w: 0.8940378}
-  m_LocalPosition: {x: 0, y: 6.07, z: -4.35}
+  m_LocalPosition: {x: 0, y: 5.03, z: -4.09}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1067,6 +1067,8 @@ MonoBehaviour:
   playerBallRigidbody: {fileID: 1012470824}
   playerBallGravity: {x: 0, y: -1, z: 0}
   playerBallGravityStrength: 9.8
+  mouseXscale: 0.001
+  mouseYscale: 0.001
 --- !u!1 &1084155435
 GameObject:
   m_ObjectHideFlags: 0

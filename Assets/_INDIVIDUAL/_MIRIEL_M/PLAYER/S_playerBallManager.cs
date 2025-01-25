@@ -9,6 +9,8 @@ public class S_playerBallManager : MonoBehaviour
     public GameObject cameraAnchor;
 
     public Vector3 playerBallGravity;
+
+    private Vector3 defaultplayerBallGravity;
     public float playerBallGravityStrength = 9.8f;
 
     public float cameraRotationSpeed = 60f;
@@ -17,6 +19,9 @@ public class S_playerBallManager : MonoBehaviour
 
     public float mouseYscale = 0.01f;
 
+    public float maxLinearVelocity = 10f;
+
+    //public float maxAngularVelocity = 10f;
 
     // Start is called before the first frame update
     void Start()
@@ -33,11 +38,21 @@ public class S_playerBallManager : MonoBehaviour
             Debug.LogWarning("Gyroscope not supported on this device.");
         }
 
+        // Set the default gravity vector
+        defaultplayerBallGravity = playerBallGravity;
         //Screen.orientation = ScreenOrientation.LandscapeLeft;
+
+        playerBallRigidbody.maxLinearVelocity = maxLinearVelocity;
+        //playerBallRigidbody.maxAngularVelocity = maxAngularVelocity;
+        
 
 
     }
 
+    public void ResetGravity()
+    {
+        playerBallGravity = defaultplayerBallGravity;
+    }
     // Update is called once per frame
     void Update()
     {

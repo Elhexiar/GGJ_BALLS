@@ -50,7 +50,7 @@ MonoBehaviour:
   cameraOffset: {x: 0, y: 0, z: 0}
   cameraRotationOffset: {x: 0, y: 0, z: 0}
   cameraRotationTest: {x: 0, y: 0, z: 0}
-  cameraRotationSpeed: 60
+  cameraRotationSpeed: 120
   playerBallManager: {fileID: 5139305947374838644}
   cameraTiltStrength: 60
 --- !u!114 &6906076196024733249
@@ -83,7 +83,7 @@ GameObject:
   - component: {fileID: 5139305947374838644}
   m_Layer: 0
   m_Name: PlayerBall
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -132,7 +132,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ce4091d1a96bd464a87fa83fe154bf5e, type: 2}
+  - {fileID: 2100000, guid: 2a4fb76bd706de04999e8a92b88dcf5a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -221,3 +221,5 @@ MonoBehaviour:
   cameraRotationSpeed: 425
   mouseXscale: 0.01
   mouseYscale: 0.017
+  maxLinearVelocity: 100
+  maxAngularVelocity: 100

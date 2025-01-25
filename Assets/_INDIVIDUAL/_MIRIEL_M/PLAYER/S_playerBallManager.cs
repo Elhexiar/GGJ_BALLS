@@ -6,8 +6,12 @@ public class S_playerBallManager : MonoBehaviour
 {
     public Rigidbody playerBallRigidbody;
 
+    public GameObject cameraAnchor;
+
     public Vector3 playerBallGravity;
     public float playerBallGravityStrength = 9.8f;
+
+    public float cameraRotationSpeed = 60f;
 
     public float mouseXscale = 0.01f;
 
@@ -17,7 +21,7 @@ public class S_playerBallManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.lockState = CursorLockMode.Locked;
 
         // Check if the device supports the gyroscope
         if (SystemInfo.supportsGyroscope)
@@ -37,7 +41,6 @@ public class S_playerBallManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        playerBallRigidbody.AddForce(playerBallGravity.normalized * playerBallGravityStrength);
 
 
         if(Input.GetAxis("Mouse X") != 0)
@@ -48,17 +51,27 @@ public class S_playerBallManager : MonoBehaviour
         {
             playerBallGravity.z += Input.GetAxis("Mouse Y") * mouseYscale;
         }
+ 
+
+        
+
+        Vector3 adjustedGravity = playerBallGravity.normalized * playerBallGravityStrength;
+
+        playerBallRigidbody.AddForce(cameraAnchor.transform.TransformDirection(adjustedGravity), ForceMode.Force);
+
+
+        
 
         // Get the gyroscope rotation rate
         //Quaternion gyroRotation = Input.gyro.attitude;
-        Vector3 gyroRotation = Input.gyro.rotationRate;
+        //Vector3 gyroRotation = Input.gyro.rotationRate;
 
-        print(gyroRotation);
+        //print(gyroRotation);
 
 
         // Use the gyroscope data to adjust the gravity vector
-        playerBallGravity.x += -gyroRotation.y * mouseXscale;
-        playerBallGravity.z += gyroRotation.x * mouseYscale;
+        //playerBallGravity.x += -gyroRotation.y * mouseXscale;
+        //playerBallGravity.z += gyroRotation.x * mouseYscale;
         
 
 

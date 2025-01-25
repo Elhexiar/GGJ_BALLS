@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class S_playerBallManager : MonoBehaviour
@@ -31,6 +32,12 @@ public class S_playerBallManager : MonoBehaviour
         {
             playerBallGravity.z += Input.GetAxis("Mouse Y") * mouseYscale;
         }
-        
+
+        if (gameObject.GetComponent<Rigidbody>().linearVelocity.y < -40)
+        {
+            gameObject.GetComponent<Rigidbody>().linearVelocity = new Vector3(
+                gameObject.GetComponent<Rigidbody>().linearVelocity.x, -40,
+                gameObject.GetComponent<Rigidbody>().linearVelocity.z);
+        }
     }
 }

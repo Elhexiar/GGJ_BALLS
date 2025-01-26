@@ -52,12 +52,12 @@ public class S_playerBallManager : MonoBehaviour
             playerBallGravity.z += Input.GetAxis("Mouse Y") * mouseYscale;
         }
 
-        if (gameObject.GetComponent<Rigidbody>().linearVelocity.y < -20)
+        /*if (gameObject.GetComponent<Rigidbody>().linearVelocity.y < -20)
         {
             gameObject.GetComponent<Rigidbody>().linearVelocity = new Vector3(
                 gameObject.GetComponent<Rigidbody>().linearVelocity.x, -20, 
                 gameObject.GetComponent<Rigidbody>().linearVelocity.z);
-        }
+        }*/
 
         
 

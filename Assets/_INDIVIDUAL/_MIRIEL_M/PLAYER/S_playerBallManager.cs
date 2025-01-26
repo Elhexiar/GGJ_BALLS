@@ -51,7 +51,13 @@ public class S_playerBallManager : MonoBehaviour
         {
             playerBallGravity.z += Input.GetAxis("Mouse Y") * mouseYscale;
         }
- 
+
+        if (gameObject.GetComponent<Rigidbody>().linearVelocity.y < -20)
+        {
+            gameObject.GetComponent<Rigidbody>().linearVelocity = new Vector3(
+                gameObject.GetComponent<Rigidbody>().linearVelocity.x, -20, 
+                gameObject.GetComponent<Rigidbody>().linearVelocity.z);
+        }
 
         
 
@@ -59,7 +65,17 @@ public class S_playerBallManager : MonoBehaviour
 
         playerBallRigidbody.AddForce(cameraAnchor.transform.TransformDirection(adjustedGravity), ForceMode.Force);
 
+        
+        if (playerBallRigidbody.linearVelocity.magnitude > 40f)
+        {
+            playerBallRigidbody.linearVelocity = Vector3.ClampMagnitude(playerBallRigidbody.linearVelocity, 40f);
+        }
 
+        if (playerBallGravity.y > -1f)
+        {
+            playerBallGravity = new Vector3(playerBallGravity.x, -1f, playerBallGravity.z);
+        }   
+        Debug.Log(playerBallGravity);
         
 
         // Get the gyroscope rotation rate
